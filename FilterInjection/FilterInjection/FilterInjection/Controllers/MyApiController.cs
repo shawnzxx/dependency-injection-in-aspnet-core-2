@@ -13,7 +13,8 @@ namespace FilterInjection.Controllers
     [Produces("application/json")]
     [Route("[controller]")]
     [ApiController]
-    //If you use ServiceFilter this type will resolve from DI
+
+    //ServiceFilter will resolve your type from DI
     //Underlining all the injected constructor will auto invoke
     [TypeFilter(typeof(BasicAuthFilterAttribute), Arguments = new object[] {1, 35})]
     public class MyApiController : ControllerBase

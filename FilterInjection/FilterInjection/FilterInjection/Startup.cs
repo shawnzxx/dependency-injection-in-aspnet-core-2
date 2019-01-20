@@ -35,10 +35,10 @@ namespace FilterInjection
 
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
-
-            //services.AddScoped<IBasicAuthChecker, DefaultBasicAuthChecker>();
-            //if we want to do unit test and don't check Auth header
+            
+            //we inject DummyAuthChekcer which is easy for unit test
             services.AddScoped<IBasicAuthChecker, DummyBasicAuthChecker>();
+            services.AddScoped<IBasicAuthChecker, DefaultBasicAuthChecker>();
 
             services.AddScoped<BasicAuthFilterAttribute>();
         }
